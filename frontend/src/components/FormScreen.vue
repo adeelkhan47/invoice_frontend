@@ -9,7 +9,7 @@
       <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">
         Your Invoice
       </h1>
-      <form class="p-10 w-full" @submit.prevent="submitForm">
+      <div class="p-10 w-full">
         <div class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full md:w-1/3 px-3 mb-6">
             <label
@@ -21,6 +21,7 @@
             <input
               class="appearance-none block w-full bg-gray-200 text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id="customer-name"
+              v-model="pdf.customerName"
               type="text"
               placeholder="Jane"
             />
@@ -36,6 +37,7 @@
               class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="email-address"
               type="text"
+              v-model="pdf.emailAddress"
               placeholder="Doe"
             />
           </div>
@@ -49,7 +51,8 @@
             <input
               class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="total-amount"
-              type="text"
+              v-model="pdf.totalAmountDue"
+              type="number"
               placeholder="Doe"
             />
           </div>
@@ -65,6 +68,7 @@
             <input
               class="appearance-none block w-full bg-gray-200 text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id="project-name"
+              v-model="pdf.projectName"
               type="text"
               placeholder="Jane"
             />
@@ -79,6 +83,7 @@
             <input
               class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="service-location"
+              v-model="pdf.serviceLocation"
               type="text"
               placeholder="Doe"
             />
@@ -332,12 +337,13 @@
             </p>
           </div>
           <button
+            @click="submitForm()"
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           >
             Submit
           </button>
         </div>
-      </form>
+      </div>
       <p class="text-gray-600 text-md text-center mb-7">
         Payment Terms: All Invoices paid net 15
       </p>
@@ -347,8 +353,7 @@
 
 <script>
 import { removeToken } from "@/services/localStorage";
-import { get } from "@/services/http";
-import download from "downloadjs";
+import { post } from "@/services/http";
 
 export default {
   name: "InvoiceForm",
@@ -383,9 +388,35 @@ export default {
         this.isError = true;
         return;
       }
-      console.log("Form submitted with data:", this.pdf);
-      const pdfBuffer = await get("/pdf");
-      download(pdfBuffer, "invoice.pdf", "application/pdf");
+      try {
+        const pdfBuffer = await post("/pdf", this.pdf, {
+          responseType: "blob",
+        });
+
+        const blob = new Blob([pdfBuffer], { type: "application/pdf" });
+
+        // Create a URL for the Blob object
+        const url = window.URL.createObjectURL(blob);
+
+        // Create a link element
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "invoice.pdf"; // Set the download attribute with the desired file name
+
+        // Append the link to the document body
+        document.body.appendChild(link);
+
+        // Click the link to trigger the download
+        link.click();
+
+        setTimeout(() => {
+          document.body.removeChild(link);
+          window.URL.revokeObjectURL(url);
+        }, 200);
+      } catch (error) {
+        console.error("Error downloading PDF:", error);
+        // Handle error
+      }
     },
     calTotal(dictionary) {
       let total = 0;

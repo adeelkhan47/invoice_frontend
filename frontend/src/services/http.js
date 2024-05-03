@@ -27,8 +27,8 @@ export const get = async (url) => {
   return response.data;
 };
 
-export const post = async (url, body) => {
-  const response = await httpService().post(url, body);
+export const post = async (url, body, config) => {
+  const response = await httpService().post(url, body, config);
   return response.data;
 };
 
