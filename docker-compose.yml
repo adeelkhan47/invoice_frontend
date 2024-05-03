@@ -1,0 +1,48 @@
+version: "3.8"
+
+services:
+  db:
+    container_name: q_db
+    image: postgres:15
+    ports:
+      - 5433:5432
+    networks:
+      - app-tier
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: questionnaire
+    volumes:
+      - pgdata:/var/lib/postgresql2/data
+
+
+  frontend:
+    container_name: q_fe
+    build: ./frontend
+    ports:
+      - 8080:8080
+    depends_on:
+      - backend
+      - db
+    networks:
+      - app-tier
+  
+  
+  backend:
+    container_name: q_be
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    networks:
+      - app-tier
+
+volumes:
+  pgdata:
+
+networks:
+  app-tier:
+    driver: bridge

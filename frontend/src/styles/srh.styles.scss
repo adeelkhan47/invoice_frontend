@@ -1,0 +1,372 @@
+:root {
+  --theme-primary: #e77491;
+  --theme-primary-light: #e7749138;
+  // --theme-secondary: #595959;
+  --theme-label-primary: #595959;
+  --theme-label-secondary: #65676b;
+
+  --theme-bg-after-login: #f3f2ef;
+  --theme-bg: #f5f6fa;
+  --theme-bg-secondary: #d5d4d4;
+  --theme-bg-hover: #e9ebf0;
+
+  --login-bg-active: #f3f2ef;
+
+  --theme-notification-bg: #fcfcfc;
+  --theme-banner-bg: #e7eff3;
+  --theme-how-to: #53575e;
+  --theme-stepper-green: #00af00;
+  --theme-stepper-yellow: #e8c46a;
+  --theme-stepper-line: #cbd3e9;
+  --theme-input-placeholder: #f5f5f5;
+  --theme-slider-bg: #f1f2f4;
+
+  --card-box-orange: #ffbb00;
+  --card-box-red: #ff5f4d;
+  --card-box-sky: #01acd9;
+  --card-box-purple: #714bd0;
+  --card-box-blue: #2f499f;
+  --card-box-light-blue: #6094e8;
+  --card-box-light-purple: #d05ea0;
+
+  --card-btn-orange: #fff6da;
+  --card-btn-red: #ffe8eb;
+  --card-btn-sky: #e5f5f2;
+  --card-btn-purple: #f1ebff;
+  --card-btn-blue: #dee6ff;
+  --card-btn-light-blue: #dfeafd;
+  --card-btn-light-purple: #ffe5f4;
+
+  --qafeed-pending-btn-bg: #fde5e5;
+  --qafeed-pending-btn-text: #ff6e6e;
+
+  --notification-bg: #e85663;
+
+  --theme-link: #226edb;
+  --theme-error: #ff7761;
+  --theme-btn-green: #19af1d;
+  --theme-circle-check: #707070;
+  --theme-role-card-border: #d0d0d0;
+
+  --theme-circle-green: #00976a;
+  --theme-qa-sub-text: #1b1818;
+
+  --theme-slide-btn-bg: #d4d4d4;
+
+  --theme-slider-card-sub-heading: #191919;
+  --theme-checkbox-label: #2e2c2a;
+  --theme-auth-screen-heading: #292724;
+  --theme-slider-form-border: #00000024;
+  --theme-slider-form-heading: #272749;
+  --theme-slider-form-note: #2a2d34;
+  --theme-slider-form-i-b: #f7f7f6;
+  --theme-slider-form-i-color: #7d7d92;
+  --form-status-icon-bg: #dddbd7;
+  --form-upload: #e6e6e6;
+  --drop-shadow-color: #00000029;
+  --black-transparent: #000000de;
+  --black: #000000;
+  --gray: #adadad;
+  --white: #ffffff;
+  --gradient-blue: #5169d5;
+
+  --sidebar-label: #84a9bf;
+  --sidebar-hover-background: #edf6fd;
+
+  --line-border-hover: #efd1d5;
+  --background-gray: #f5f6fa;
+  --background-gray-dark: #80808030;
+  --white-medium-light: hsl(0deg 0% 100% / 95%);
+  --transparent: transparent;
+  --line-border: #e9ebf0;
+  --theme-bg-light: #e0324921;
+  --theme-bg-light-medium: #ea4b60;
+
+  --i-icon-bg: #d1e7ff;
+
+  //buttons
+  --btn-fill-primary: #16648b;
+  --btn-fill-primary-hover: #14516f;
+  --btn-fill-secondary: #00acd9;
+  --btn-fill-secondary-hover: #089ec7;
+  --btn-default: #e8e8e8;
+  --btn-default-hover: #d2d2d2;
+  --btn-transparent-hover: #f3f2ef;
+
+  --blue: #3490dc;
+  --green: #38c172;
+  --yellow: #ffed4a;
+  --red: #e3342f;
+  --red-notification: #ffccbc;
+  --green-notification: #c8e6c9;
+  --yellow-notification: #ffecb3;
+  --blue-notification: #bbdefb;
+
+  // input
+  --input-border: #7070706a;
+  --input-placeholder: #53575e;
+  --input-placeholder-focus: #292724;
+
+  //select
+  --select-placeholder: #53575e61;
+
+  //before login
+  --bl-primary: #53575e;
+}
+// body {
+//   background-color: var(--theme-bg);
+// }
+// h1 {
+//   letter-spacing: -1.12px;
+//   color: var(--theme-label-primary);
+//   opacity: 1;
+//   text-align: left;
+// }
+// h2 {
+//   letter-spacing: -0.38px;
+//   color: var(--theme-label-primary);
+//   opacity: 1;
+//   text-align: left;
+// }
+// h3 {
+//   letter-spacing: 0px;
+//   color: var(--theme-label-primary);
+//   opacity: 1;
+//   text-align: left;
+// }
+// h4 {
+//   letter-spacing: 0px;
+//   color: var(--theme-label-primary);
+//   opacity: 1;
+// }
+// h5 {
+//   font: normal normal 22px/27px Proxima Nova Regular;
+//   letter-spacing: 0px;
+//   color: var(--theme-label-primary);
+//   opacity: 1;
+//   text-align: left;
+// }
+// h6,
+// .body-1 {
+//   letter-spacing: 0px;
+//   color: var(--theme-label-primary);
+//   opacity: 1;
+//   text-align: left;
+// }
+// .body-2 {
+//   letter-spacing: 0px;
+//   color: var(--theme-label-primary);
+//   opacity: 0.6;
+//   text-align: left;
+// }
+// .subtitle-1 {
+//   letter-spacing: 0.11px;
+//   color: var(--theme-label-primary);
+//   opacity: 1;
+//   text-align: left;
+// }
+// .subtitle-2 {
+//   letter-spacing: 0.17px;
+//   color: var(--theme-label-primary);
+//   opacity: 1;
+//   text-align: left;
+// }
+// .new-tag {
+//   text-align: left;
+//   font-family: Roboto;
+//   line-height: 15px;
+//   font-size: 13px;
+//   letter-spacing: 0px;
+//   color: var(--white);
+//   text-transform: uppercase;
+//   opacity: 1;
+//   border-radius: 3px;
+//   padding: 3px 7px;
+//   background-color: var(--theme-bg-light-medium);
+// }
+// .caption {
+//   letter-spacing: 0.4px;
+//   color: var(--black);
+//   opacity: 1;
+// }
+// .overline {
+//   letter-spacing: 1.88px;
+//   color: var(--black);
+//   text-transform: uppercase;
+//   opacity: 1;
+// }
+// a {
+//   color: var(--theme-primary);
+//   cursor: pointer;
+//   letter-spacing: 0.11px;
+//   opacity: 1;
+//   text-align: center;
+// }
+// button {
+//   letter-spacing: 0px;
+//   opacity: 1;
+//   border: none;
+//   width: fit-content;
+//   text-align: left;
+//   height: 44px;
+//   padding: 0 20px;
+//   &:hover {
+//     cursor: pointer;
+//   }
+// }
+// .disabled {
+//   background: var(--line-border) 0% 0% no-repeat padding-box;
+//   color: var(--theme-label-primary);
+//   &:hover {
+//     cursor: auto;
+//   }
+// }
+
+// .loader {
+//   border: 16px solid #f3f3f3; /* Light grey */
+//   border-top: 16px solid var(--theme-bg); /* Blue */
+//   border-radius: 50%;
+//   width: 120px;
+//   height: 120px;
+//   animation: spin 2s linear infinite;
+// }
+// .blue-loader {
+//   border: 6px solid #f3f3f3;
+//   border-top: 6px solid var(--theme-bg);
+//   border-radius: 50%;
+//   width: 20px;
+//   height: 20px;
+//   animation: spin 2s linear infinite;
+// }
+
+// @keyframes spin {
+//   0% {
+//     transform: rotate(0deg);
+//   }
+//   100% {
+//     transform: rotate(360deg);
+//   }
+// }
+
+// @media only screen and (min-width: 800px) {
+//   h1 {
+//     font: normal normal 70px/82px Proxima Nova bold;
+//   }
+//   h2 {
+//     font: normal normal 48px/56px Proxima Nova bold;
+//   }
+//   h3 {
+//     font: normal normal 30px/36px Proxima Nova bold;
+//   }
+//   h4 {
+//     font: normal normal 24px/28px Proxima Nova Semi bold;
+//   }
+//   h5 {
+//     font: normal normal 22px/27px Proxima Nova Regular;
+//   }
+//   h6,
+//   .body-1 {
+//     font: normal normal 20px/24px Proxima Nova Regular;
+//   }
+//   .body-2,
+//   a {
+//     font: normal normal 18px/22px Proxima Nova Regular;
+//   }
+//   .subtitle-1 {
+//     font: normal normal 14px/17px Proxima Nova Regular;
+//   }
+//   .subtitle-2 {
+//     font: normal normal 14px/16px Proxima Nova Regular;
+//   }
+//   .caption {
+//     font: normal normal 12px/14px Proxima Nova Regular;
+//   }
+//   .overline {
+//     font: normal normal 12px/14px Proxima Nova bold;
+//   }
+//   button {
+//     font: normal normal 19px/27px Proxima Nova Semi bold;
+//   }
+//   input {
+//     font: normal normal normal 18px/22px Proxima Nova Regular;
+//   }
+//   .hurray-heading {
+//     font: normal normal 600 95px/114px Proxima Nova Semi bold;
+//   }
+//   .register-heading {
+//     font: normal normal 47px/28px Proxima Nova Regular;
+//   }
+//   .banner-heading {
+//     font: normal normal 39px/47px Proxima Nova bold;
+//   }
+//   .auth-form-heading {
+//     font: normal normal 37px/41px Proxima Nova Regular;
+//   }
+//   .request-class-heading {
+//     font: normal normal 38px/46px Proxima Nova Semi bold;
+//   }
+//   .banner-how-to {
+//     font: normal normal 600 30px/36px Proxima Nova Semi bold;
+//   }
+//   .banner-sub-heading {
+//     font: normal normal 25px/30px Proxima Nova Regular;
+//   }
+//   .breadcrumb-heading {
+//     font: normal normal 25px/30px Proxima Nova Semi bold;
+//   }
+//   .button-text {
+//     font: normal normal 19px/27px Proxima Nova Semi bold;
+//   }
+//   .breadcrumb-sub-heading {
+//     font: normal normal 14px/17px Proxima Nova Semi bold;
+//   }
+//   .auth-form-sub-text {
+//     font: normal normal 18px/26px Proxima Nova Regular;
+//   }
+//   .slider-sub-text {
+//     font: normal normal 15px/23px Proxima Nova Regular;
+//   }
+//   .hurray-screen-heading {
+//     font: normal normal 600 95px/114px Proxima Nova Semi bold;
+//   }
+// }
+// @media only screen and (max-width: 800px) {
+//   h1 {
+//     font: normal normal 70px/82px Proxima Nova bold;
+//   }
+//   h2 {
+//     font: normal normal 48px/56px Proxima Nova bold;
+//   }
+//   h3 {
+//     font: normal normal 30px/36px Proxima Nova bold;
+//   }
+//   h4 {
+//     font: normal normal 20px/24px Proxima Nova Semi bold;
+//   }
+//   h5 {
+//     font: normal normal 16px/24px Proxima Nova Regular;
+//   }
+//   h6,
+//   .body-1 {
+//     font: normal normal 16px/24px Proxima Nova Regular;
+//   }
+//   .body-2,
+//   a {
+//     font: normal normal 16px/24px Proxima Nova Regular;
+//   }
+//   .subtitle-1 {
+//     font: normal normal 14px/16px Proxima Nova Regular;
+//   }
+//   .subtitle-2 {
+//     font: normal normal 14px/16px Proxima Nova Regular;
+//   }
+//   .caption {
+//     font: normal normal 12px/14px Proxima Nova Regular;
+//   }
+//   .overline {
+//     font: normal normal 12px/14px Proxima Nova bold;
+//   }
+//   button {
+//     font: normal normal 12px/14px Proxima Nova Semi bold;
+//   }
+// }
