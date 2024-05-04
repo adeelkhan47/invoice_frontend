@@ -98,6 +98,21 @@ export class PdfController {
               <td id="serviceDescriptionSubtotal"></td>
             </tr>
           </table>
+
+          <h2>Miles from port to site</h2>
+          <table>
+            <tr>
+              <th>Date</th>
+              <th>Quantity</th>
+              <th>Rate</th>
+              <th>Amount</th>
+            </tr>
+            <tbody id="milesRows"></tbody>
+            <tr class="total">
+              <td colspan="3">Subtotal</td>
+              <td id="milesSubtotal"></td>
+            </tr>
+          </table>
     
           <h2>Materials and Parts</h2>
           <table>
@@ -153,6 +168,11 @@ export class PdfController {
               jsonData.serviceDescription,
               "serviceDescriptionRows",
               "serviceDescriptionSubtotal"
+            );
+            populateRows(
+              jsonData.miles,
+              "milesRows",
+              "milesSubtotal"
             );
             populateRows(
               jsonData.materialsAndParts,

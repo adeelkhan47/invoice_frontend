@@ -41,6 +41,38 @@
               placeholder="Doe"
             />
           </div>
+        </div>
+        <div class="flex flex-wrap -mx-3 mb-6">
+          <div class="w-full md:w-1/3 px-3">
+            <label
+              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              for="invoice-number"
+            >
+              Invoice Number
+            </label>
+            <input
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              id="invoice-number"
+              type="text"
+              v-model="pdf.invoiceNumber"
+              placeholder="Doe"
+            />
+          </div>
+          <div class="w-full md:w-1/2 px-3 mb-6">
+            <label
+              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              for="subcontractor-name"
+            >
+              Subcontractor Name
+            </label>
+            <input
+              class="appearance-none block w-full bg-gray-200 text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              id="subcontractor-name"
+              v-model="pdf.subcontractorName"
+              type="text"
+              placeholder="Jane"
+            />
+          </div>
           <div class="w-full md:w-1/4 px-3">
             <label
               class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -159,6 +191,83 @@
                   class="absolute"
                   style="right: -30px"
                   @click="addRow('serviceDescription')"
+                >
+                  <img width="18" src="@/assets/add.svg" alt="" />
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="w-full my-2 whitespace-no-wrap border border-gray-200">
+          <thead>
+            <tr>
+              <th class="px-4 py-2 bg-gray-200 text-gray-700 text-xs font-bold">
+                Miles from port to site
+              </th>
+              <th class="px-4 py-2 bg-gray-200 text-gray-700 text-xs font-bold">
+                Date
+              </th>
+              <th class="px-4 py-2 bg-gray-200 text-gray-700 text-xs font-bold">
+                Quantity
+              </th>
+              <th class="px-4 py-2 bg-gray-200 text-gray-700 text-xs font-bold">
+                Rate
+              </th>
+              <th class="px-4 py-2 bg-gray-200 text-gray-700 text-xs font-bold">
+                Amount
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(item, index) in pdf.miles" :key="index">
+              <td class="border px-4 py-2"></td>
+              <td class="border px-4 py-2">
+                <input
+                  type="date"
+                  v-model="item.date"
+                  class="bg-transparent text-gray-700 rounded"
+                />
+              </td>
+              <td class="border px-4 py-2">
+                <input
+                  type="number"
+                  @change="calTotal('miles')"
+                  v-model="item.quantity"
+                  class="bg-transparent w-20 text-gray-700 rounded"
+                  name=""
+                />
+              </td>
+              <td class="border px-4 py-2">
+                <input
+                  type="number"
+                  v-model="item.rate"
+                  @change="calTotal('miles')"
+                  class="bg-transparent w-20 text-gray-700 rounded"
+                  name=""
+                />
+              </td>
+              <td class="border relative px-4 py-2 text-center">
+                {{ item.amount }}
+                <button
+                  class="absolute top-2"
+                  style="right: -30px"
+                  @click="removeRow('miles', index)"
+                >
+                  <img width="18" src="@/assets/cross.svg" alt="" />
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2">Subtotal</td>
+              <td class="border px-4 py-2"></td>
+              <td class="border px-4 py-2"></td>
+              <td class="border px-4 py-2"></td>
+              <td class="border relative px-4 py-2 text-center">
+                {{ this.pdf.milesSubtotal }}
+                <button
+                  class="absolute"
+                  style="right: -30px"
+                  @click="addRow('miles')"
                 >
                   <img width="18" src="@/assets/add.svg" alt="" />
                 </button>
@@ -340,7 +449,7 @@
             @click="submitForm()"
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           >
-            Submit
+            Get Invoice
           </button>
         </div>
       </div>
